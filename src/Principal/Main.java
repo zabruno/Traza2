@@ -13,6 +13,8 @@ package Principal;
 //Se reutilizaron las clases de un proyecto de Paradigmas de Programacion
 //Se adapto el proyecto para que use lombok y el repositorio de Traza1
 //Se agregaron las clases de traza 1
+//Link traza 1 https://github.com/zabruno/Traza.git
+//Link proyecto adaptado https://github.com/zabruno/PruebaJava
 
 public class Main {
     public static void main(String[] args) {
