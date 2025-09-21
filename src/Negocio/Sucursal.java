@@ -1,9 +1,11 @@
-package Entidades;
+package Negocio;
 
+import Articulos.Articulo;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
+import java.util.HashSet;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,19 +20,32 @@ public class Sucursal {
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
     private boolean es_Casa_Matriz;
-
     private Empresa empresa;
-
     private Domicilio domicilio;
+    @Builder.Default
+    private HashSet<Articulo> articulos = new HashSet<>();
 
-public String toString(){
-    return "Sucursal { "+
-            "ID: " + id +
-            " // Nombre: " + nombre + '\'' +
-            " // Horario de apertura: " + horarioApertura +
-            " // Horario de cierre: " + horarioCierre +
-            " // Es casa matriz: " + es_Casa_Matriz +
-            " // Domicilio: " + domicilio +
-            " }";
+    @Override
+    public String toString() {
+        String estadoArticulos = (articulos == null || articulos.isEmpty())
+                ? "Sin artículos"
+                : "Con artículos (" + articulos.size() + ")";
+
+        return "Sucursal {\n" +
+                "   ID: " + id + "\n" +
+                "   Nombre: " + nombre + "\n" +
+                "   Horario de apertura: " + horarioApertura + "\n" +
+                "   Horario de cierre: " + horarioCierre + "\n" +
+                "   Es casa matriz: " + es_Casa_Matriz + "\n" +
+                "   Domicilio: " + domicilio.getCalle() +"; "+domicilio.getNumero() + "; " + domicilio.getLocalidad() + "\n" +
+                "   Artículos: " + estadoArticulos + "\n" +
+                "}\n";
     }
+
+    public void agregarArticulo (Articulo articulo) {
+    this.articulos.add(articulo);
+    articulo.getSucursales().add(this);
+    }
+
+    //deberia sobreescribir metodos equal y hashcode
 }

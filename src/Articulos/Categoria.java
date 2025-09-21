@@ -1,7 +1,6 @@
 package Articulos;
 
 import lombok.*;
-
 import java.util.HashSet;
 
 @Data
@@ -11,7 +10,6 @@ import java.util.HashSet;
 @Getter
 @Setter
 public class Categoria {
-    private static final HashSet<Categoria> cat = new HashSet<>();
     private Long id;
     private String nombre;
     @Builder.Default

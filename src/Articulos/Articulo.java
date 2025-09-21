@@ -1,8 +1,8 @@
 package Articulos;
 
+import Negocio.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 import java.util.HashSet;
 
 @Data
@@ -19,14 +19,8 @@ public abstract class Articulo {
     private UnidadMedida unidadMedida;
     @Builder.Default
     private HashSet<Imagen> imagenes = new HashSet<>();
-
-    public void agregarImagen(Imagen img){
-        this.imagenes.add(img);
-    }
-
-    public void limpiarImagenes() {
-        this.imagenes.clear();
-    }
+    @Builder.Default
+    private HashSet<Sucursal> sucursales = new HashSet<>();
 
     public boolean eliminado(){
         return this.id == null;
@@ -58,6 +52,14 @@ public abstract class Articulo {
             sb.append("Sus imágenes son: \n");
             for (Imagen i : this.imagenes) {
                 sb.append(" - ").append(i.getDescripcion()).append("\n");
+            }
+        }
+        if (sucursales.isEmpty()) {
+            sb.append("No está presente en ninguna sucursal \n");
+        } else {
+            sb.append("Sus sucursales son: \n");
+            for (Sucursal i : this.sucursales) {
+                sb.append(" - ").append(i.getNombre()).append("\n");
             }
         }
 
