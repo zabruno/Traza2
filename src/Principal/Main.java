@@ -9,7 +9,7 @@ package Principal;
 
 //Se reutilizaron las clases de un proyecto de Paradigmas de Programacion
 //Se adapto el proyecto para que use lombok y el repositorio de Traza1
-
+//Se agregaron las clases de traza 1
 
 public class Main {
     public static void main(String[] args) {
