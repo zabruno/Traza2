@@ -5,17 +5,10 @@ package Principal;
     import java.awt.*;
     import java.util.Arrays;
     import java.util.HashSet;
-    import java.util.Set;
 
 
-//en la consigna senala que tendremos 3 variedades de pizza h y 3 de lomo completo
-    //pero al crear ArticuloManufacturado, une las piezas creadas en 1, como si los 3 insumos creados
-    //fueran de 1 sola variedad de pizza o lomo, yo voy a tomar como que imagen1,2,3 e insumosl1,insumosl2,insumol3
-    //pertecen a 1 sola variedad de comida, por tanto solo creo 1 lomo y 1 pizza como Articulo Manufacturado
-
-    //sobre el final me di cuenta que si creaba los articulos manufacturados sobre otra estructura
-    //los podia eliminar genuinamente (y no simplemente dejando sus valores en null) con un id, no me dio
-    //el tiempo para adaptarlo a esta idea aunque el programa tal como esta, funciona.
+//Se reutilizaron las clases de un proyecto de Paradigmas de Programacion
+//Se adapto el proyecto para que use lombok y el repositorio de Traza1
 
 
 public class Main {
